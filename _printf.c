@@ -37,5 +37,5 @@ int _printf(const char *format, ...)
 		counter++;
 	}
 	va_end(init);
-	return (sum + counter);
+	return (sum + counter - 1);
 }
