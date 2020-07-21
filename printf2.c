@@ -1,8 +1,20 @@
 #include "holberton.h"
+/**
+ * _putchar - writes the character c to stdout
+ * @c: The character to print
+ *
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ */
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
 
 /**
 * _printf - Prints practically anything
 * @format: string of printf
+* Return: int
 */
 int _printf(const char *format, ...)
 {
@@ -12,11 +24,11 @@ int _printf(const char *format, ...)
 
 	va_start(Start, *format);
 
-	while(*format)
+	while (*format)
 	{
 		if (*format == '%')
-                {
-                        format++;
+		{
+			format++;
 			switch (*format)
 			{
 				case 's':
@@ -33,22 +45,15 @@ int _printf(const char *format, ...)
 					charCount++;
 					break;
 				case 'd':
-					charCount += print_Int(va_arg(Start, int));
 					break;
 				case 'i':
-                                        charCount += print_Int(va_arg(Start, int));
-                                        break;
+					break;
 				case '%':
-					_putchar('%');
-					charCount++;
 					break;
 				case '\0':
 					break;
 			}
 		}
-		_putchar(*format);
-		format++;
-		charCount++;
 	}
 
 	va_end(Start);
