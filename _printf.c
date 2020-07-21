@@ -9,6 +9,9 @@ int _printf(const char *format, ...)
 	va_list init;
 	int i, sum, counter;
 
+	if (!format)
+		return (0);
+
 	va_start(init, format);
 	i = sum = counter = 0;
 
