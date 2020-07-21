@@ -15,8 +15,8 @@ int _printf(const char *format, ...)
 	while(*format)
 	{
 		if (*format == '%')
-		{
-			format++;
+                {
+                        format++;
 			switch (*format)
 			{
 				case 's':
@@ -40,22 +40,15 @@ int _printf(const char *format, ...)
                                         break;
 				case '%':
 					_putchar('%');
-					_putchar(*format);
 					charCount++;
-				case '\0':
 					break;
-				default:
-					_putchar('%');
-					charCount += 2;
+				case '\0':
 					break;
 			}
 		}
-		else
-		{
-			_putchar(*format);
-			format++;
-			charCount++;
-		}
+		_putchar(*format);
+		format++;
+		charCount++;
 	}
 
 	va_end(Start);
