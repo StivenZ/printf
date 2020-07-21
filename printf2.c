@@ -12,11 +12,11 @@ int _putchar(char c)
 }
 
 /**
-* _printf - Prints practically anything
+* _printf2 - Prints practically anything
 * @format: string of printf
 * Return: int
 */
-int _printf(const char *format, ...)
+int _printf2(const char *format, ...)
 {
 	int charCount = 0;
 	char *pPrintStr;
