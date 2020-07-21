@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 
 	while (format && format[i])
 	{
-		if (format[i] == '%' && format[i + 1] != '%')
+		if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'c'
+			|| format[i + 1] == 's'))
 		{
 			i++;
 			switch (format[i])
@@ -25,10 +26,13 @@ int _printf(const char *format, ...)
 				case 's':
 					sum = sum + s_funct(va_arg(init, char *));
 					break;
+				case 'd':
+					sum = sum + d_funct(va_arg(init, int));
+					break;
 			}
 			i++;
 		}
-		else if (format[i] == '%')
+		else if (format[i + 1] == '%' && format[i] == '%')
 		{
 			i++;
 		}

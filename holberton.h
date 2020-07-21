@@ -9,4 +9,6 @@ int s_funct(char *s);
 
 int _printf(const char *format, ...);
 
+int d_funct(int n);
+
 #endif /* _HOLBERTON_H_ */

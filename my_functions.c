@@ -28,3 +28,20 @@ int c_funct(char c)
 	write(1, &c, 1);
 	return (1);
 }
+
+/**
+ * d_funct - prints integer
+ * @n: number pass to be printed
+ * Return: number of characters printed
+*/
+int d_funct(int n)
+{
+	int i = 0;
+
+	if (n > 0)
+	{
+		d_funct(n / 10);
+		write(1, &n + '0', 4);
+	}
+	return (i + 1);
+}
