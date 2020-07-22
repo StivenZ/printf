@@ -50,20 +50,22 @@ int d_funct(int n)
 	{
 		n = -n;
 		my_putchar('-');
+		i++;
 	}
 
 	while ((n / max) >= 1)
 	{
-		i++;
 		max = max * 10;
 	}
+
 	max = max / 10;
 
 	while (max > 0)
 	{
 		my_putchar(((n / max) % 10) + '0');
+		i++;
 		max = max / 10;
 	}
 
-	return (i + 1);
+	return (i);
 }
