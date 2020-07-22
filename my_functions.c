@@ -65,5 +65,5 @@ int d_funct(int n)
 		max = max / 10;
 	}
 
-	return (i);
+	return (i + 1);
 }
