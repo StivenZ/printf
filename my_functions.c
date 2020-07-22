@@ -8,11 +8,13 @@ int s_funct(char *s)
 {
 	int i;
 
+	if (!s)
+		return (0);
 	i = 0;
 
 	while (s[i])
 	{
-		write(1, &s[i], 1);
+		my_putchar(s[i]);
 		i++;
 	}
 	return (i);
@@ -25,7 +27,10 @@ int s_funct(char *s)
 */
 int c_funct(char c)
 {
-	write(1, &c, 1);
+	if (!c)
+		return (0);
+
+	my_putchar(c);
 	return (1);
 }
 
@@ -36,12 +41,45 @@ int c_funct(char c)
 */
 int d_funct(int n)
 {
-	int i = 0;
+	int i, j, k;
+	int *str;
 
-	if (n > 0)
+	if (!n)
+		return (0);
+	j = n;
+	i = 0;
+
+	while (j >= 0)
 	{
-		d_funct(n / 10);
-		write(1, &n + '0', 4);
+		j = j / 10;
+		i++;
 	}
+	j = n;
+
+	str = malloc((sizeof(int)) * i);
+	if (!str)
+		return (0);
+
+	i--;
+	k = i;
+	printf("%d\n", i);
+
+	while (j > 0)
+	{
+		str[i] = (j % 10);
+		j = j / 10;
+
+		if (i < 0)
+			i--;
+	}
+	printf("%d\n", i);
+
+	while (i < k)
+	{
+		my_putchar(str[i] + '0');
+		i++;
+	}
+	printf("%d\n", i);
+	free(str);
 	return (i + 1);
 }

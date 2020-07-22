@@ -6,43 +6,49 @@
 */
 int _printf(const char *format, ...)
 {
-	va_list init;
+	va_list current;
 	int i, sum, counter;
+	
 
-	if (!format)
+	if (format == NULL || format == '\0')
 		return (0);
 
-	va_start(init, format);
+	va_start(current, format);
 	i = sum = counter = 0;
+	
 
 	while (format && format[i])
 	{
+		
 		if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'c'
-			|| format[i + 1] == 's'))
+			|| format[i + 1] == 's' || format[i + 1] == 'i'))
 		{
 			i++;
 			switch (format[i])
 			{
 				case 'c':
-					sum = sum + c_funct(va_arg(init, int));
+					sum = sum + c_funct(va_arg(current, int));
 					break;
 				case 's':
-					sum = sum + s_funct(va_arg(init, char *));
+					sum = sum + s_funct(va_arg(current, char *));
 					break;
 				case 'd':
-					sum = sum + d_funct(va_arg(init, int));
+					sum = sum + d_funct(va_arg(current, int));
+					break;
+				case 'i':
+					sum = sum + d_funct(va_arg(current, int));
 					break;
 			}
 			i++;
 		}
-		else if (format[i + 1] == '%' && format[i] == '%')
+		if (format[i + 1] == '%' && format[i] == '%')
 		{
 			i++;
 		}
-		write(1, &format[i], 1);
+		my_putchar(format[i]);
 		i++;
 		counter++;
 	}
-	va_end(init);
+	va_end(current);
 	return (sum + counter);
 }
