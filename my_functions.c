@@ -62,7 +62,6 @@ int d_funct(int n)
 
 	i--;
 	k = i;
-	printf("%d\n", i);
 
 	while (j > 0)
 	{
@@ -72,14 +71,12 @@ int d_funct(int n)
 		if (i < 0)
 			i--;
 	}
-	printf("%d\n", i);
 
 	while (i < k)
 	{
 		my_putchar(str[i] + '0');
 		i++;
 	}
-	printf("%d\n", i);
 	free(str);
 	return (i + 1);
 }
