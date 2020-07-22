@@ -49,7 +49,7 @@ int d_funct(int n)
 	j = n;
 	i = 0;
 
-	while (j >= 0)
+	while (j > 0)
 	{
 		j = j / 10;
 		i++;
