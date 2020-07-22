@@ -41,42 +41,29 @@ int c_funct(char c)
 */
 int d_funct(int n)
 {
-	int i, j, k;
-	int *str;
+	int i, max;
 
-	if (!n)
-		return (0);
-	j = n;
 	i = 0;
+	max = 10;
 
-	while (j > 0)
+	if (n < 0)
 	{
-		j = j / 10;
+		n = -n;
+		my_putchar('-');
+	}
+
+	while ((n / max) >= 1)
+	{
 		i++;
+		max = max * 10;
 	}
-	j = n;
+	max = max / 10;
 
-	str = malloc((sizeof(int)) * i);
-	if (!str)
-		return (0);
-
-	i--;
-	k = i;
-
-	while (j > 0)
+	while (max > 0)
 	{
-		str[i] = (j % 10);
-		j = j / 10;
-
-		if (i < 0)
-			i--;
+		my_putchar(((n / max) % 10) + '0');
+		max = max / 10;
 	}
 
-	while (i < k)
-	{
-		my_putchar(str[i] + '0');
-		i++;
-	}
-	free(str);
-	return (i + 1);
+	return (i);
 }

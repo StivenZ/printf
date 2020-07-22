@@ -10,12 +10,12 @@ int _printf(const char *format, ...)
 	int i, sum, counter;
 
 	if (format == NULL || format == '\0')
-		return (0);
+		return (-1);
 
 	va_start(current, format);
 	i = sum = counter = 0;
 
-	while (format && format[i])
+	while (format != NULL && format[i] != '\0')
 	{
 		if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'c'
 			|| format[i + 1] == 's' || format[i + 1] == 'i'))
