@@ -21,16 +21,17 @@ int _printf(const char *format, ...)
 			{
 				case 's':
 					pPrintStr = va_arg(Start, char *);
-					while (*pPrintStr)
+					if (pPrintStr)
+						charCount += print_str(pPrintStr);
+					else
 					{
-						_putchar(*pPrintStr);
-						pPrintStr++;
-						charCount++;
+						charCount += print_str("(null)");
+						charCount -= 1;
 					}
 					break;
 				case 'c':
 					_putchar(va_arg(Start, int));
-					charCount++;
+					charCount += 1;
 					break;
 				case 'd':
 					charCount += print_Int(va_arg(Start, int));
@@ -40,11 +41,12 @@ int _printf(const char *format, ...)
                                         break;
 				case '%':
 					_putchar('%');
-					charCount++;
+					charCount += 1;
 					break;
 				case '\0':
 					break;
 			}
+			format++;
 		}
 		_putchar(*format);
 		format++;
