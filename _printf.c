@@ -4,7 +4,7 @@
  * @format: format specifier
  * Return: number of bytes printed
 */
-int _printf(const char *format, ...)
+int _printf2(const char *format, ...)
 {
 	va_list current;
 	int i, sum, counter;
