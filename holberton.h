@@ -2,6 +2,8 @@
 #define _HOLBERTON_H_
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 int print_str(char *str);
 
@@ -14,5 +16,9 @@ int s_funct(char *s);
 int print_Int(int i);
 
 int _printf(const char *format, ...);
+
+int d_funct(int n);
+
+int my_putchar(char c);
 
 #endif /* _HOLBERTON_H_ */

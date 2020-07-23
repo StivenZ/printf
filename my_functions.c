@@ -8,11 +8,13 @@ int s_funct(char *s)
 {
 	int i;
 
+	if (!s)
+		return (0);
 	i = 0;
 
 	while (s[i])
 	{
-		write(1, &s[i], 1);
+		my_putchar(s[i]);
 		i++;
 	}
 	return (i);
@@ -25,6 +27,45 @@ int s_funct(char *s)
 */
 int c_funct(char c)
 {
-	write(1, &c, 1);
+	if (!c)
+		return (0);
+
+	my_putchar(c);
 	return (1);
+}
+
+/**
+ * d_funct - prints integer
+ * @n: number pass to be printed
+ * Return: number of characters printed
+*/
+int d_funct(int n)
+{
+	int i, max;
+
+	i = 0;
+	max = 10;
+
+	if (n < 0)
+	{
+		n = -n;
+		my_putchar('-');
+		i++;
+	}
+
+	while ((n / max) >= 1)
+	{
+		max = max * 10;
+	}
+
+	max = max / 10;
+
+	while (max > 0)
+	{
+		my_putchar(((n / max) % 10) + '0');
+		i++;
+		max = max / 10;
+	}
+
+	return (i);
 }

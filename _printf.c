@@ -4,38 +4,45 @@
  * @format: format specifier
  * Return: number of bytes printed
 */
-int _printf(const char *format, ...)
+int _printf2(const char *format, ...)
 {
-	va_list init;
+	va_list current;
 	int i, sum, counter;
 
-	va_start(init, format);
-	i = sum = counter = 0;
+	if (format == NULL || format == '\0')
+		return (-1);
 
-	while (format && format[i])
+	va_start(current, format);
+	i = sum = counter = 0;
+while (format != NULL && format[i] != '\0')
+{
+	while (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'c'
+		|| format[i + 1] == 's' || format[i + 1] == 'i'))
 	{
-		if (format[i] == '%' && format[i + 1] != '%')
-		{
-			i++;
-			switch (format[i])
-			{
-				case 'c':
-					sum = sum + c_funct(va_arg(init, int));
-					break;
-				case 's':
-					sum = sum + s_funct(va_arg(init, char *));
-					break;
-			}
-			i++;
-		}
-		else if (format[i] == '%')
-		{
-			i++;
-		}
-		write(1, &format[i], 1);
 		i++;
-		counter++;
+		switch (format[i])
+		{
+			case 'c':
+				sum = sum + c_funct(va_arg(current, int));
+				break;
+			case 's':
+				sum = sum + s_funct(va_arg(current, char *));
+				break;
+			case 'd':
+				sum = sum + d_funct(va_arg(current, int));
+				break;
+			case 'i':
+				sum = sum + d_funct(va_arg(current, int));
+				break;
+		}
+		i++;
 	}
-	va_end(init);
+	if (format[i + 1] == '%' && format[i] == '%')
+		i++;
+	my_putchar(format[i]);
+	i++;
+	counter++;
+}
+	va_end(current);
 	return (sum + counter);
 }
