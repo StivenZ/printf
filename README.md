@@ -2,7 +2,8 @@
 
 A printf-like function built from scratch, implementing most basic usage of printf, such as: prints strings, strings in arguments, integers, integers in arguments, and simulating regular printf most common behavior.
 
-### Built-in functionsAfter verifying whether the string passed to \_printf is NULL or not, the \_printf function will continue evaluating each position to evaluate if it falls into one of the listed cases below. In order to get the parameters passed as arguments, it will evaluate whether the current and following position are, respectively % and s/c/d/i.
+### Built-in functions
+After verifying whether the string passed to \_printf is NULL or not, the \_printf function will continue evaluating each position to evaluate if it falls into one of the listed cases below. In order to get the parameters passed as arguments, it will evaluate whether the current and following position are, respectively % and s/c/d/i.
 Some of the functions implemented within the main printf fuction are:
 
 #### d\_funct and i\_functThese two functions receive an int as input. Int is treated as such and, every digit is retrieved through modulus and dision iterations. Digits are then converted into their ASCII representative number. They return the number of digits/characters printed.
