@@ -6,5 +6,6 @@ Receives a single character as parameter, prints it out and returns 1 (which is 
 ## Flowchart
 ![flowchart of _printf fuction](https://imgur.com/Ble2izm)
 ## Built With C## 
-Authors* **Santiago Zapata Bedoya** - *Holberton Student* - [santizabe](https://github.com/santizabe)
+Authors
+* **Santiago Zapata Bedoya** - *Holberton Student* - [santizabe](https://github.com/santizabe)
 * **Stiven Espinosa Zapata** - *Holberton Student* - [StivenZ](https://github.com/StivenZ)
