@@ -2,6 +2,7 @@
 /**
  * chofunct - chooses which function applies according to the case
  * @c: character to compare with
+ * @current: va_list argument
  * Return: number of characters printed.
 */
 int chofunct(char c, va_list current)
@@ -48,9 +49,12 @@ int _printf(const char *format, ...)
 		if (format[i + 1] == '%' && format[i] == '%')
 			i++;
 
-		my_putchar(format[i]);
-		i++;
-		counter++;
+		if (format[i] != '\0')
+		{
+			my_putchar(format[i]);
+			i++;
+			counter++;
+		}
 	}
 	va_end(current);
 	return (sum + counter);
