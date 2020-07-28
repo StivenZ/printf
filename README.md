@@ -22,7 +22,7 @@ Receives a single character as parameter, prints it out and returns 1 (which is 
 ## Flowchart
 ![flowchart of _printf fuction](https://i.imgur.com/Ble2izm.png)
 
-## Built With C ## 
+## Built With C ##
 
 Authors
 * **Santiago Zapata Bedoya** - *Holberton Student* - [santizabe](https://github.com/santizabe)
